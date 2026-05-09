@@ -1,0 +1,5 @@
+This is my first post written as a plain text file.
+
+No HTML needed — just drop the file in content/ and push.
+
+A new paragraph starts after a blank line.
