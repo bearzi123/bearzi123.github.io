@@ -11,7 +11,7 @@ INDEX_FILE = Path("index.html")
 CACHE_FILE = Path(".build-cache.json")
 
 FILE_PATTERN = re.compile(
-    r"^(\d{4}-\d{2}-\d{2})-(.+)\.(txt|jpg|jpeg|png|heic|heif|html)$", re.IGNORECASE
+    r"^(\d{4}-\d{2}-\d{2})-(.+)\.(txt|jpg|jpeg|png|heic|heif|html|pdf)$", re.IGNORECASE
 )
 
 POST_TEMPLATE = """\
@@ -149,6 +149,18 @@ def _build_file(src, out):
         img.save(out.parent / img_name, "JPEG", quality=90)
         title = _title_from_slug(slug)
         content_html = f'<img src="{img_name}" alt="{title}" style="max-width:100%;">'
+        out.write_text(
+            POST_TEMPLATE.format(title=title, date=date_str, content=content_html, back=back),
+            encoding="utf-8",
+        )
+    elif ext == "pdf":
+        shutil.copy2(src, out.parent / src.name)
+        title = _title_from_slug(slug)
+        content_html = (
+            f'<object data="{src.name}" type="application/pdf" style="width:100%;height:80vh;">'
+            f'<a href="{src.name}">{title}</a>'
+            f'</object>'
+        )
         out.write_text(
             POST_TEMPLATE.format(title=title, date=date_str, content=content_html, back=back),
             encoding="utf-8",
