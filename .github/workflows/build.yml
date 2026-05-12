@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: pip install pillow pillow-heif
+        run: pip install pillow pillow-heif markdown
 
       - name: Build HTML
         run: python3 build.py
