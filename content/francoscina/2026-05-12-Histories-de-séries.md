@@ -37,6 +37,7 @@ Vrai. Selon Lagane, "un vrai sériephile devrait prendre le temps de respirer en
 L'intertitre veut dire que c'est un dommage si les autres devoilent l'histoire en avance <span style="color:red">**d'on**</span> la fait connaître, mais il vaut mieux <span style="color:red">**s'il**</span> on regarde une série <span style="color:red">**lentemente**</span> pour parvenir à <span style="color:red">**toute sa nuance**</span>.
 
 dévoiler = divulguer = révéler
+
 spolier -> spoiler -> divulgâcher (de Québec)
 
 L'intertitre veut dire que c'est un dommage si les autres devoilent l'histoire en avance <span style="color:green">*avant qu'on*</span> la fait connaître, mais il vaut mieux <span style="color:green">*si*</span> on regarde une série <span style="color:green">*lentement*</span> pour parvenir à <span style="color:green">*toutes ses nuances*</span>.
