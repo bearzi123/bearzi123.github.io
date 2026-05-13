@@ -1,5 +1,3 @@
-# Corrections - Histoires de séries
-
 ## 1. a) Reformulez le titre avec vos propres mots:
 
 Se sentir mieux pour ne pas être obligé de regarder les séries populaires.
