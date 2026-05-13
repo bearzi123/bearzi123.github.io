@@ -1,5 +1,5 @@
 1. Contenu: 4 / 5 
-Le texte répond bein au titre est reste calr. Il contient des idées originales, mais parfois pas assez développées ou pas assez bien soutenues.
+Le texte répond bien au titre est reste clair. Il contient des idées originales, mais parfois pas assez développées ou pas assez bien soutenues.
 
 2. Structure, cohérence et cohésion: 3 / 3
 Texte très bien organisé: introduction, développement, conclusion. Connecteurs bien utilisée. Transitions claires.
