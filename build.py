@@ -56,7 +56,7 @@ SECTION_INDEX_TEMPLATE = """\
     <ul class="post-list">
     </ul>
 
-    <a class="back" href="/">← back</a>
+    <a class="back" href="{back}">← back</a>
 </body>
 </html>
 """
@@ -106,19 +106,17 @@ def _out_path(content_file):
     if len(parts) == 1:
         return ROOT_OUT_DIR / (stem + ".html")
     else:
-        return Path(parts[0]) / (stem + ".html")
+        return Path(parts[0]).joinpath(*parts[1:-1]) / (stem + ".html")
 
 
-def _section(content_file):
-    """Return section name or None for root-level files."""
-    parts = content_file.relative_to(CONTENT_DIR).parts
-    return parts[0] if len(parts) > 1 else None
+def _dir_title(path):
+    return path.name.replace("-", " ").replace("_", " ").title()
 
 
 def _build_file(src, out):
     m = FILE_PATTERN.match(src.name)
     date_str, slug, ext = m.group(1), m.group(2), m.group(3).lower()
-    out.parent.mkdir(exist_ok=True)
+    out.parent.mkdir(parents=True, exist_ok=True)
 
     back = "../" if out.parent != Path(".") else "/"
 
@@ -177,23 +175,55 @@ def _build_file(src, out):
         shutil.copy2(src, out)
 
 
-def _posts_for_section(section):
-    src_dir = CONTENT_DIR / section if section else CONTENT_DIR
+def _rebuild_index(content_dir):
+    """Build or update index.html for a content directory."""
+    if content_dir == CONTENT_DIR:
+        posts = []
+        for item in content_dir.iterdir():
+            if not item.is_file():
+                continue
+            m = FILE_PATTERN.match(item.name)
+            if not m:
+                continue
+            date_str, slug, ext = m.group(1), m.group(2), m.group(3).lower()
+            out = _out_path(item)
+            title = _html_title(item.read_text(encoding="utf-8")) or _title_from_slug(slug) if ext == "html" else _title_from_slug(slug)
+            posts.append((date_str, title, out))
+        _update_post_list(INDEX_FILE, sorted(posts, reverse=True))
+        return
+
+    rel_parts = content_dir.relative_to(CONTENT_DIR).parts
+    out_dir = Path(*rel_parts)
+    index_path = out_dir / "index.html"
+
+    if not index_path.exists():
+        out_dir.mkdir(parents=True, exist_ok=True)
+        index_path.write_text(
+            SECTION_INDEX_TEMPLATE.format(title=_dir_title(content_dir), back="../"),
+            encoding="utf-8",
+        )
+
     posts = []
-    for f in src_dir.iterdir():
-        if not f.is_file():
-            continue
-        m = FILE_PATTERN.match(f.name)
-        if not m:
-            continue
-        date_str, slug, ext = m.group(1), m.group(2), m.group(3).lower()
-        out = _out_path(f)
-        if ext == "html":
-            title = _html_title(f.read_text(encoding="utf-8")) or _title_from_slug(slug)
-        else:
-            title = _title_from_slug(slug)
-        posts.append((date_str, title, out))
-    return sorted(posts, reverse=True)
+    for item in content_dir.iterdir():
+        if item.is_file():
+            m = FILE_PATTERN.match(item.name)
+            if not m:
+                continue
+            date_str, slug, ext = m.group(1), m.group(2), m.group(3).lower()
+            out = _out_path(item)
+            title = _html_title(item.read_text(encoding="utf-8")) or _title_from_slug(slug) if ext == "html" else _title_from_slug(slug)
+            posts.append((date_str, title, out))
+        elif item.is_dir():
+            sub_files = sorted(
+                (f for f in item.rglob("*") if f.is_file() and FILE_PATTERN.match(f.name)),
+                key=lambda f: f.name,
+                reverse=True,
+            )
+            if not sub_files:
+                continue
+            date_str = FILE_PATTERN.match(sub_files[0].name).group(1)
+            posts.append((date_str, _dir_title(item), out_dir / item.name / "index.html"))
+    _update_post_list(index_path, sorted(posts, reverse=True))
 
 
 def _update_post_list(index_path, posts):
@@ -214,17 +244,6 @@ def _update_post_list(index_path, posts):
     index_path.write_text(new_text, encoding="utf-8")
 
 
-def _ensure_section_index(section):
-    index_path = Path(section) / "index.html"
-    if not index_path.exists():
-        index_path.parent.mkdir(exist_ok=True)
-        title = section.replace("-", " ").replace("_", " ").capitalize()
-        index_path.write_text(
-            SECTION_INDEX_TEMPLATE.format(title=title), encoding="utf-8"
-        )
-    return index_path
-
-
 def build():
     ROOT_OUT_DIR.mkdir(exist_ok=True)
 
@@ -233,7 +252,15 @@ def build():
         cache = json.loads(CACHE_FILE.read_text())
 
     new_cache = {}
-    changed_sections = set()
+    changed_dirs = set()
+
+    def _mark_changed(src):
+        d = src.parent
+        while True:
+            changed_dirs.add(d)
+            if d == CONTENT_DIR:
+                break
+            d = d.parent
 
     # Collect all current content files
     content_files = {
@@ -249,7 +276,7 @@ def build():
             if out.exists():
                 out.unlink()
                 print(f"  deleted: {out}")
-            changed_sections.add(_section(Path(key)))
+            _mark_changed(Path(key))
 
     # Builds
     built = 0
@@ -262,18 +289,12 @@ def build():
             continue
         out = _out_path(src)
         _build_file(src, out)
-        changed_sections.add(_section(src))
+        _mark_changed(src)
         print(f"  built: {src.relative_to(CONTENT_DIR)}")
         built += 1
 
-    # Update indexes only for affected sections
-    for section in changed_sections:
-        posts = _posts_for_section(section)
-        if section is None:
-            _update_post_list(INDEX_FILE, posts)
-        else:
-            index_path = _ensure_section_index(section)
-            _update_post_list(index_path, posts)
+    for content_dir in changed_dirs:
+        _rebuild_index(content_dir)
 
     CACHE_FILE.write_text(json.dumps(new_cache, indent=2))
     print(f"Done: {built} built, {skipped} skipped, {len(cache) - len([k for k in cache if k in new_cache])} deleted.")
