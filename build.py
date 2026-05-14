@@ -28,8 +28,7 @@ POST_TEMPLATE = """\
     </header>
 
     <article>
-        <h1>{title}</h1>
-        <div class="meta">{date}</div>
+        <h1>{title} — {date}</h1>
 
         {content}
     </article>
@@ -277,6 +276,17 @@ def build():
                 out.unlink()
                 print(f"  deleted: {out}")
             _mark_changed(Path(key))
+
+    # Copy static assets (files that don't match the date pattern)
+    for src in CONTENT_DIR.rglob("*"):
+        if not src.is_file() or FILE_PATTERN.match(src.name):
+            continue
+        rel = src.relative_to(CONTENT_DIR)
+        out = Path(rel.parts[0]).joinpath(*rel.parts[1:]) if len(rel.parts) > 1 else ROOT_OUT_DIR / rel
+        out.parent.mkdir(parents=True, exist_ok=True)
+        if not out.exists() or src.stat().st_mtime > out.stat().st_mtime:
+            shutil.copy2(src, out)
+            print(f"  asset: {rel}")
 
     # Builds
     built = 0
