@@ -18,7 +18,7 @@ A hkrati, ob pomanjkanju sistematične analize problema lahko le ta vodi do take
 </figure>
 
 ## Malthus, Young in francoska revolucija
-Začetek 19. stoletja je napovedoval novo ekonomsko realnost z veliko rastjo prebivalstva, ki se je selila iz podeželja v nova industrijska mesta. Thomas Malthus je v tem videl veliko grožnjo, namreč v prenaseljenosti prostora, kjer se je opiral na angleškega agronoma Arthur Younga. Ta je svoj čas preživel v Franciji, ki je bila takrat primerljivo največja država v Evropi po številu prebivalcev, 20 milijonov proti 5 v Angliji, kjer do 1780 leta število teh naraste do 30 milijonov. Med drugim je ta demografska eksplozija vodila k slabšanju materialnih razmer dninarjev, ki je skupaj z rastjo davkov vodila do leta 1789. Young, podobno kot mnogi danes, ni mogel uiti danosti svojega ekonomskega razreda. Največjo napako v francoskem političnem sistemu je videl v tem, da je lahko plemstvo in meščanstvo sedelo v istem parlamentu (v nasprotju z dvema domovoma v Angliji). Malthus se Youngu pridruži v analizi stanja in porazdelitve. Zanj je sprememba oblasti v Franciji nepredstavljiva in vidi v nižjih slojih nevarno opozicijo, ki bi ji morali takoj odvzeti vso podporo. Pomembneje, omejiti bi jim morali tudi možnost rodnosti.
+Začetek 19. stoletja je napovedoval novo ekonomsko realnost z veliko rastjo prebivalstva, ki se je selila iz podeželja v nova industrijska mesta. Thomas Malthus je v tem videl veliko grožnjo, namreč v prenaseljenosti prostora, kjer se je opiral na angleškega agronoma Arthur Younga. Ta je svoj čas preživel v Franciji, ki je bila takrat primerljivo največja država v Evropi po številu prebivalcev, 20 milijonov proti 5 v Angliji. Med drugim je ta demografska eksplozija vodila k slabšanju materialnih razmer dninarjev, ki je skupaj z rastjo davkov vodila do leta 1789. Young, podobno kot mnogi danes, ni mogel uiti danosti svojega ekonomskega razreda. Največjo napako v francoskem političnem sistemu je videl v tem, da je lahko plemstvo in meščanstvo sedelo v istem parlamentu (v nasprotju z dvema domovoma v Angliji). Malthus se Youngu pridruži v analizi stanja in porazdelitve. Zanj je sprememba oblasti v Franciji nepredstavljiva in vidi v nižjih slojih nevarno opozicijo, ki bi ji morali takoj odvzeti vso podporo. Pomembneje, omejiti bi jim morali tudi možnost rodnosti.
 
 <figure>
   <img src="./img/rast_prebivalstva.jpg" alt="stats">
@@ -26,7 +26,16 @@ Začetek 19. stoletja je napovedoval novo ekonomsko realnost z veliko rastjo pre
 </figure>
 
 ## Ricardo, načelo redkosti
-  
+Konec 18. stoletja je bil za pripadnike višjega razreda, torej za skoraj vse vse vidne intelektualce tistega časa - travmatizirajoč. Nenadne socialne in ekonomske spremembe so mnoge vodile misliti, da je prihodnost človeških struktur temačna. Med njima sta omenjena David Ricardo in Karl Marx. Prvi je verjel, da se bo bodoče bogastvo koncentriralo pri lastnikih zemlje, drugi pa da kapitalističnih podjetnikih. Skupno jima je bilo mnenje, da se bodo ti polastili vedno večjega deleža prihodka.
+
+Po Ricardu je šel argument tako: ljudje živijo in delajo na zemlji in več kot je ljudi, večja bo potreba po njej, odvisnost, ki bo vodila v rast njene cene. Od tega pa bodo večinsko bogateli lastniki zemlje, ostali pa v njihovi nemilosti. Za njega je rešitev pred bodočo ekonomsko neenakostjo predstavljal davek na lastnino zemlje. Danes vemo, da se njegova napoved ni uresničila (v celoti). Vrednost zemlje je v primerjavi z drugimi bogastvi naraščala počasneje, prav tako pa kmetje - njeni lastniki - danes ne predstavljajo dominantne strukture. Podobno kot Malthusa in Younga ga je omejevala domišljija pri človeški sposobnosti se osamosvojiti obveze pridelavi hrane.
+
+Načelo redkosti, ki ga je vpeljal, ni nepomemben. Izraža nevarnost, da lahko lastniki neke iskane a redke dobrine to izkoristijo za višanje cen, od katere lahko neizmerno obogatijo. "Ta ideja ne pozna ne meje ne etike." S koordiniranjem dejanj skoraj vsakega danes živega pa lahko v svojem ekstremu pripelje do nevarnih družbenih stanj. Če Ricardovo dobrino poljedelske zemlje zamenjamo z nepremičninami ali gorivom, pridemo do enakih socialnih in ekonomskih neenakosti, ki lahko vodijo v razpad družbe.     
+
+<figure>
+  <img src="./img/rast_cen.webp" alt="stats_2">
+  <figcaption>Redka dobrina, nekdo bogati</figcaption>
+</figure>
 
 ## <u>Nouveaux mots:</u>
 1. balbutiant(e) - adj. - jecljajoč; 
@@ -34,3 +43,5 @@ Začetek 19. stoletja je napovedoval novo ekonomsko realnost z veliko rastjo pre
 3. foncier(ère) - adj. - zemljiški; 
 4. la déflagration - n. f. - vzplamtenje;
 5. l'auberge - n. f. - gostišče; 
+6. aboutir - v. - doseči, priti do sklepa; 
+7. quoique - conj. - četudi; 
