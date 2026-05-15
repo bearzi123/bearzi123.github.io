@@ -11,7 +11,7 @@ INDEX_FILE = Path("index.html")
 CACHE_FILE = Path(".build-cache.json")
 
 FILE_PATTERN = re.compile(
-    r"^(\d{4}-\d{2}-\d{2})-(.+)\.(txt|md|jpg|jpeg|png|heic|heif|html|pdf)$", re.IGNORECASE
+    r"^(\d{4}-\d{2}-\d{2})-(.+)\.(txt|md|jpg|jpeg|png|heic|heif|html|pdf|pptx|odp|odt)$", re.IGNORECASE
 )
 
 POST_TEMPLATE = """\
@@ -166,6 +166,41 @@ def _build_file(src, out):
             f'<a href="{src.name}">{title}</a>'
             f'</object>'
         )
+        out.write_text(
+            POST_TEMPLATE.format(title=title, date=date_str, content=content_html, back=back),
+            encoding="utf-8",
+        )
+    elif ext in ("pptx", "odp", "odt"):
+        import subprocess
+        shutil.copy2(src, out.parent / src.name)
+        title = _title_from_slug(slug)
+        content_html = None
+        try:
+            result = subprocess.run(
+                ["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", str(out.parent), str(src)],
+                capture_output=True, timeout=60, check=False,
+            )
+            pdf_name = src.stem + ".pdf"
+            if result.returncode == 0 and (out.parent / pdf_name).exists():
+                content_html = (
+                    f'<div style="text-align:right;margin-bottom:4px;">'
+                    f'<button onclick="var e=document.getElementById(\'pdf-wrap\');'
+                    f'(e.requestFullscreen||e.webkitRequestFullscreen).call(e);" '
+                    f'style="padding:6px 14px;cursor:pointer;background:#fff;'
+                    f'border:1px solid #999;border-radius:4px;font-size:0.85rem;">'
+                    f'Fullscreen</button>'
+                    f'</div>'
+                    f'<div id="pdf-wrap" style="width:100%;height:80vh;">'
+                    f'<object data="{pdf_name}" type="application/pdf" style="width:100%;height:100%;">'
+                    f'<a href="{src.name}">{title}</a>'
+                    f'</object>'
+                    f'</div>'
+                    f'<style>#pdf-wrap:fullscreen{{width:100%;height:100%;}}</style>'
+                )
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            pass
+        if content_html is None:
+            content_html = f'<p><a href="{src.name}">{title}</a> — download to open in LibreOffice</p>'
         out.write_text(
             POST_TEMPLATE.format(title=title, date=date_str, content=content_html, back=back),
             encoding="utf-8",
