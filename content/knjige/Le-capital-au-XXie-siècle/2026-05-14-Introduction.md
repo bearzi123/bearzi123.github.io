@@ -34,8 +34,21 @@ Načelo redkosti, ki ga je vpeljal, ni nepomemben. Izraža nevarnost, da lahko l
 
 <figure>
   <img src="./img/rast_cen.webp" alt="stats_2">
-  <figcaption>Redka dobrina, nekdo bogati</figcaption>
+  <figcaption>Ustvarjanje dobičkov z neizogibno potrebo</figcaption>
 </figure>
+
+## Marx: načelo nenehnega kopičenja
+Do časa Marxa se je problem vidno spremenil. Države so bile zmožne pridelati dovolj hrane za svoje prebivalstvo, hkrati pa cene poljedeljske zemlje niso apokaliptično narasle. Dejstvo pa je postajalo vedno bolj očitno, da hitro rastoče množice ljudi živijo v ekstremno bednih pogojih, v nasprotju z neverjetno produktivno rastjo nove industrije, ki so jo pomagali soustvarjati. Plače delavcev so v primerjavi s prejšnjimi stoletji stagnirale ali celo padale, do kakršnega koli opazne rasti njihovih plač je prišlo komaj ob koncu 19. stoletja. Trenutek pa ni spremenil ogromne neenakosti, ki je veljala v zahodnih državah vse do časa prve svetovne vojne. V takšnih pogojih so se razvijale prve socialistične ideje z osnovnim vprašanjem: "Kakšnemu namenu služi industrijska rast, tehnološki napredek, težaško delo in selitve v mesta, če ostane stanje množic enako slabo kot brez te?" 
+
+Kaj je lahko reči o dolgoročnosti takšnega sistema? Po Marxu je odgovor: "Razvoj velike industrije pod nogami svoje buržoazije spodkopava taista tla na katerih je zgradila svoj sistem produkcije in prisvajanja. Meščanstvo si postavlja svoje lastne grobarje." Marx se od Ricardove ideje redke dobrine loči s tem, da sodi kapital predvsem po svoji industrijski, fizični obliki, nevezan na zemljo. S tem je neskončen in tako tu kopičenje tega. Zanj sta posledici lahko le dve, in obe slabi - ali se bo rast upočasnili in vodila do tega, da se kapitalisti med seboj raztrgajo; ali pa bo nenehna rast neenakosti vodila do povezave delastva in revolucije. Ekvilibrij je nemogoč.
+
+Ta analiza je lahko v današnjem času, s stabilno gospodarsko rastjo, a vedno večjo rastjo neenakosti enako relevantna, take, ki ni apokaliptična pa tudi ne neodmisljiva - nevarna za socialno stabilnost družbe.   
+
+
+<figure>
+  <img src="./img/place.webp" alt="stats_3">
+  <figcaption>Padec povprečne plače ob začetku industrijske revolucije</figcaption>
+</figure>      
 
 ## <u>Nouveaux mots:</u>
 1. balbutiant(e) - adj. - jecljajoč; 
@@ -45,3 +58,19 @@ Načelo redkosti, ki ga je vpeljal, ni nepomemben. Izraža nevarnost, da lahko l
 5. l'auberge - n. f. - gostišče; 
 6. aboutir - v. - doseči, priti do sklepa; 
 7. quoique - conj. - četudi; 
+8. en dépit - n. m. - kljub;
+9. s'entasser - v. - kopičiti se;
+10. le taudis - n. m. - bedno stanovanje, "luknja";
+11. sordide - adj. - umazan, ogaben; 
+12. le recul - n. m. - razdalja, oddaljitev;
+13. le labeur - n. m. - naporno delo;
+14. s'atteller - v. - resno se lotiti; 
+15. traquer - v. - preganjati; 
+16. saper - v. - spodkopati;
+17. le fossoyeur - n. m. - grobar;
+18. l'échéance - n. f. - dan odločitve;
+19. attardé(e) - adj. - zaostal;
+20. le raccourci - n. m. - povzetek; 
+21. hâtif/ive - adj. - prenagel;
+22. le pertinence - n. f. - umestnost;
+23. perturbant(e) - adj. - vznemirljiv; 
